@@ -18,18 +18,18 @@ import com.duhan.transgate.ui.theme.Primary
 
 @Composable
 fun Button(
-    params: Params
+    buttonParams: ButtonParams
 ) {
     androidx.compose.material3.Button(
-        modifier = params.modifier,
-        onClick = params.onClick,
-        shape = androidx.compose.foundation.shape.RoundedCornerShape(params.cornerRadius),
+        modifier = buttonParams.modifier,
+        onClick = buttonParams.onClick,
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(buttonParams.cornerRadius),
         colors = androidx.compose.material3.ButtonDefaults.buttonColors(
-            containerColor = params.backgroundColor,
+            containerColor = buttonParams.backgroundColor,
         )
     ) {
         Text(
-            text = AnnotatedString(params.text),
+            text = AnnotatedString(buttonParams.text),
             fontFamily = CAMPTON_FONT_FAMILY,
             fontSize = 16.sp,
             fontWeight = FontWeight.Normal,
@@ -38,7 +38,7 @@ fun Button(
     }
 }
 
-data class Params(
+data class ButtonParams(
     val text: String,
     val cornerRadius: Dp = 10.dp,
     val backgroundColor: Color = Primary,
@@ -50,7 +50,7 @@ data class Params(
 @Preview(showBackground = true)
 fun ButtonPreview() {
     Button(
-        Params("Hello World",
+        ButtonParams("Hello World",
             backgroundColor = Primary,
             modifier = Modifier
                 .padding(16.dp)

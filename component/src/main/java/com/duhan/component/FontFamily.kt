@@ -1,10 +1,9 @@
-package com.duhan.transgate.components
+package com.duhan.component
 
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
-import com.duhan.transgate.R
 
 val CAMPTON_FONT_FAMILY = FontFamily(
     Font(R.font.campton_black, FontWeight.Black),

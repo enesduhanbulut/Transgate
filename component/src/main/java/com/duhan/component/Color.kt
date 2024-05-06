@@ -1,4 +1,4 @@
-package com.duhan.transgate.ui.theme
+package com.duhan.component
 
 import androidx.compose.ui.graphics.Color
 

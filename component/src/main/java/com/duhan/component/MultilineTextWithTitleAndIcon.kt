@@ -1,4 +1,4 @@
-package com.duhan.transgate.components
+package com.duhan.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,7 +15,6 @@ import androidx.compose.ui.unit.sp
 fun MultilineTextAreaWithTitleAndIcon(
     params: MultilineTextAreaWithTitleAndIconParams
 ) {
-    // use TitleWithIcon and Text composable to display the title and icon in rounded corner shape
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -37,19 +36,24 @@ fun MultilineTextAreaWithTitleAndIconPreview() {
                 modifier = Modifier
             ), titleAndIconParams = TitleWithIconParams(
                 iconParams = IconParams(
-                    contentDescription = "Cancel", tint = Color.Black, modifier = Modifier
-                ), titleParams = TextParams(
+                    contentDescription = "Cancel", tint = Color.Black
+                ),
+                titleParams = TextParams(
                     text = "Title",
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
-                ), iconPosition = IconPosition.End, modifier = Modifier, horizontalArrangement = Arrangement.SpaceBetween
+                ),
+                iconPosition = IconPosition.End,
+                modifier = Modifier,
+                horizontalArrangement = Arrangement.SpaceBetween
             )
         )
     )
 }
 
 data class MultilineTextAreaWithTitleAndIconParams(
-    val contentText: TextAreaParams, val titleAndIconParams: TitleWithIconParams
+    val contentText: TextAreaParams = TextAreaParams(),
+    val titleAndIconParams: TitleWithIconParams = TitleWithIconParams()
 )

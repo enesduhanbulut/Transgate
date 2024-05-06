@@ -1,4 +1,4 @@
-package com.duhan.transgate.components
+package com.duhan.component
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.TextField

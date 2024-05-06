@@ -1,4 +1,4 @@
-package com.duhan.transgate.components
+package com.duhan.component
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

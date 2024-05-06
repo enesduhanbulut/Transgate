@@ -1,20 +1,14 @@
-package com.duhan.transgate.components
+package com.duhan.component
 
 import android.util.Log
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.AnnotatedString
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.duhan.transgate.ui.theme.Primary
 
 @Composable
 fun Button(
@@ -29,34 +23,32 @@ fun Button(
         )
     ) {
         Text(
-            text = AnnotatedString(buttonParams.text),
-            fontFamily = CAMPTON_FONT_FAMILY,
-            fontSize = 16.sp,
-            fontWeight = FontWeight.Normal,
-            textAlign = TextAlign.Center
+            params = buttonParams.textParams,
         )
     }
 }
 
 data class ButtonParams(
-    val text: String,
     val cornerRadius: Dp = 10.dp,
-    val backgroundColor: Color = Primary,
+    val backgroundColor: Color = Color.White,
     val modifier: Modifier = Modifier,
-    val onClick: () -> Unit
+    val onClick: () -> Unit = {},
+    val textParams: TextParams = TextParams(),
 )
 
 @Composable
 @Preview(showBackground = true)
 fun ButtonPreview() {
     Button(
-        ButtonParams("Hello World",
+        ButtonParams(
             backgroundColor = Primary,
-            modifier = Modifier
-                .padding(16.dp)
-                .fillMaxWidth(),
+            modifier = Modifier.padding(16.dp).fillMaxWidth(),
             onClick = {
                 Log.d("Button", "Hello World")
-            })
+            },
+            textParams = TextParams(
+                text = "Hello World",
+            ),
+        )
     )
 }

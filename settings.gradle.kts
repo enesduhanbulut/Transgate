@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Transgate"
 include(":app")
+include(":component")

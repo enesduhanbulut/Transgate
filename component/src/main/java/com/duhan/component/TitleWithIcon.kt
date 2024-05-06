@@ -1,4 +1,4 @@
-package com.duhan.transgate.components
+package com.duhan.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -16,7 +16,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.duhan.transgate.R
 
 @Composable
 fun TitleWithIcon(

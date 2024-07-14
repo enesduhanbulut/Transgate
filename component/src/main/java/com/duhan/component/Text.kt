@@ -9,16 +9,14 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun Text(
-    params: TextParams
-) {
+fun Text(params: TextParams) {
     androidx.compose.material3.Text(
         text = AnnotatedString(params.text),
         fontFamily = CAMPTON_FONT_FAMILY,
         fontSize = params.fontSize,
         fontWeight = params.fontWeight,
         textAlign = params.textAlign,
-        modifier = params.modifier
+        modifier = params.modifier,
     )
 }
 
@@ -27,5 +25,10 @@ data class TextParams(
     val fontSize: TextUnit = 16.sp,
     val fontWeight: FontWeight = FontWeight.Normal,
     val textAlign: TextAlign = TextAlign.Center,
-    val modifier: Modifier = Modifier
+    val modifier: Modifier = Modifier,
 )
+
+fun dummyTextParams() =
+    TextParams(
+        text = "Hello, World!",
+    )

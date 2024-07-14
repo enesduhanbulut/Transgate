@@ -18,12 +18,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun TitleWithIcon(
-    params: TitleWithIconParams
-) {
+fun TitleWithIcon(params: TitleWithIconParams) {
     Row(
-        modifier = params.modifier.fillMaxWidth(), horizontalArrangement = params.horizontalArrangement
-        , verticalAlignment = Alignment.CenterVertically
+        modifier = params.modifier.fillMaxWidth(),
+        horizontalArrangement = params.horizontalArrangement,
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         if (params.iconPosition == IconPosition.Start) {
             DrawIcon(params)
@@ -32,21 +31,20 @@ fun TitleWithIcon(
             DrawTitle(params)
             DrawIcon(params)
         }
-
     }
 }
 
 @Composable
 private fun DrawIcon(params: TitleWithIconParams) {
     Icon(
-        params.iconParams
+        params.iconParams,
     )
 }
 
 @Composable
 private fun DrawTitle(params: TitleWithIconParams) {
     Text(
-        params.titleParams
+        params.titleParams,
     )
 }
 
@@ -57,22 +55,27 @@ private fun DrawSpacer() {
 
 @Composable
 @Preview(showBackground = true)
-fun TitleWithIconPreview() {
+private fun TitleWithIconPreview() {
     TitleWithIcon(
         TitleWithIconParams(
-            titleParams = TextParams(
-                text = "Hello World",
-                fontSize = 16.sp,
-                fontWeight = FontWeight.Normal,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-            ), iconParams = IconParams(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_cancel),
-                contentDescription = "Cancel",
-                tint = Color.Black,
-                modifier = Modifier
-            ), iconPosition = IconPosition.Start, modifier = Modifier
-        )
+            titleParams =
+                TextParams(
+                    text = "Hello World",
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Normal,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier,
+                ),
+            iconParams =
+                IconParams(
+                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_cancel),
+                    contentDescription = "Cancel",
+                    tint = Color.Black,
+                    modifier = Modifier,
+                ),
+            iconPosition = IconPosition.Start,
+            modifier = Modifier,
+        ),
     )
 }
 
@@ -81,9 +84,10 @@ data class TitleWithIconParams(
     val iconParams: IconParams = IconParams(),
     val horizontalArrangement: Arrangement.Horizontal = Arrangement.SpaceBetween,
     val iconPosition: IconPosition = IconPosition.Start,
-    val modifier: Modifier = Modifier
+    val modifier: Modifier = Modifier,
 )
 
 enum class IconPosition {
-    Start, End
+    Start,
+    End,
 }

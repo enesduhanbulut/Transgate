@@ -12,48 +12,51 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun MultilineTextAreaWithTitleAndIcon(
-    params: MultilineTextAreaWithTitleAndIconParams
-) {
+fun MultilineTextAreaWithTitleAndIcon(params: MultilineTextAreaWithTitleAndIconParams) {
     Column(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
     ) {
         TitleWithIcon(params.titleAndIconParams)
         TextArea(params.contentText)
     }
-
 }
 
 @Preview(showBackground = true)
 @Composable
-fun MultilineTextAreaWithTitleAndIconPreview() {
+private fun MultilineTextAreaWithTitleAndIconPreview() {
     MultilineTextAreaWithTitleAndIcon(
         MultilineTextAreaWithTitleAndIconParams(
-            contentText = TextAreaParams(
-                value = "Hello",
-                onValueChange = {},
-                backgroundColor = Color.White,
-                modifier = Modifier
-            ), titleAndIconParams = TitleWithIconParams(
-                iconParams = IconParams(
-                    contentDescription = "Cancel", tint = Color.Black
+            contentText =
+                TextAreaParams(
+                    value = "Hello",
+                    onValueChange = {},
+                    backgroundColor = Color.White,
+                    modifier = Modifier,
                 ),
-                titleParams = TextParams(
-                    text = "Title",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier
+            titleAndIconParams =
+                TitleWithIconParams(
+                    iconParams =
+                        IconParams(
+                            contentDescription = "Cancel",
+                            tint = Color.Black,
+                        ),
+                    titleParams =
+                        TextParams(
+                            text = "Title",
+                            fontSize = 16.sp,
+                            fontWeight = FontWeight.Bold,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier,
+                        ),
+                    iconPosition = IconPosition.End,
+                    modifier = Modifier,
+                    horizontalArrangement = Arrangement.SpaceBetween,
                 ),
-                iconPosition = IconPosition.End,
-                modifier = Modifier,
-                horizontalArrangement = Arrangement.SpaceBetween
-            )
-        )
+        ),
     )
 }
 
 data class MultilineTextAreaWithTitleAndIconParams(
     val contentText: TextAreaParams = TextAreaParams(),
-    val titleAndIconParams: TitleWithIconParams = TitleWithIconParams()
+    val titleAndIconParams: TitleWithIconParams = TitleWithIconParams(),
 )

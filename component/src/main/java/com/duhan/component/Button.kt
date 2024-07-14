@@ -11,16 +11,17 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Button(
-    buttonParams: ButtonParams
-) {
+fun Button(buttonParams: ButtonParams) {
     androidx.compose.material3.Button(
         modifier = buttonParams.modifier,
         onClick = buttonParams.onClick,
-        shape = androidx.compose.foundation.shape.RoundedCornerShape(buttonParams.cornerRadius),
-        colors = androidx.compose.material3.ButtonDefaults.buttonColors(
-            containerColor = buttonParams.backgroundColor,
-        )
+        shape =
+            androidx.compose.foundation.shape
+                .RoundedCornerShape(buttonParams.cornerRadius),
+        colors =
+            androidx.compose.material3.ButtonDefaults.buttonColors(
+                containerColor = buttonParams.backgroundColor,
+            ),
     ) {
         Text(
             params = buttonParams.textParams,
@@ -38,7 +39,7 @@ data class ButtonParams(
 
 @Composable
 @Preview(showBackground = true)
-fun ButtonPreview() {
+private fun ButtonPreview() {
     Button(
         ButtonParams(
             backgroundColor = Primary,
@@ -46,9 +47,10 @@ fun ButtonPreview() {
             onClick = {
                 Log.d("Button", "Hello World")
             },
-            textParams = TextParams(
-                text = "Hello World",
-            ),
-        )
+            textParams =
+                TextParams(
+                    text = "Hello World",
+                ),
+        ),
     )
 }

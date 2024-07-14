@@ -9,29 +9,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.duhan.component.Toolbar
 import com.duhan.component.ToolbarParams
+import com.duhan.component.dummyToolbarParams
 
+@Suppress("ktlint:compose:modifier-missing-check", "ktlint:standard:function-naming")
 @Composable
-fun MainScreen(
-    mainViewModel: MainViewModel = MainViewModel()
-) {
+fun MainScreen(mainViewModel: MainViewModel? = null) {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {}
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        DrawToolbar(mainViewModel?.uiState?.value?.toolbarParams)
+    }
 }
 
+@Suppress("ktlint:standard:function-naming")
 @Composable
-fun DrawToolbar(
-    toolbarParams: ToolbarParams
-) {
-    Toolbar(
-        toolbarParams
-    )
+fun DrawToolbar(toolbarParams: ToolbarParams? = dummyToolbarParams()) {
+    toolbarParams?.let {
+        Toolbar(
+            it,
+        )
+    }
 }
 
+@Suppress("ktlint:standard:function-naming")
 @Preview(showBackground = true)
 @Composable
-fun MainScreenPreview() {
+private fun MainScreenPreview() {
     MainScreen()
 }

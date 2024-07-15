@@ -21,12 +21,7 @@ fun Icon(params: IconParams) {
 @Composable
 private fun IconPreview() {
     Icon(
-        IconParams(
-            imageVector = ImageVector.vectorResource(id = R.drawable.ic_cancel),
-            contentDescription = "Cancel",
-            tint = Color.Black,
-            modifier = Modifier,
-        ),
+        dummyIconParams(),
     )
 }
 
@@ -36,3 +31,12 @@ data class IconParams(
     val tint: Color = Color.White,
     val modifier: Modifier = Modifier,
 )
+
+@Composable
+fun dummyIconParams() =
+    IconParams(
+        imageVector = ImageVector.vectorResource(id = R.drawable.ic_cancel),
+        contentDescription = "Cancel",
+        tint = Color.Black,
+        modifier = Modifier,
+    )

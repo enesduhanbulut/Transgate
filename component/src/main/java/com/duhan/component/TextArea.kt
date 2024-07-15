@@ -40,11 +40,15 @@ data class TextAreaParams(
 @Composable
 private fun TextAreaPreview() {
     TextArea(
-        TextAreaParams(
-            value = "Hello World",
-            onValueChange = {},
-            backgroundColor = Color.White,
-            modifier = Modifier,
-        ),
+        dummyTextAreaParams(),
     )
 }
+
+@Composable
+fun dummyTextAreaParams() =
+    TextAreaParams(
+        value = "Hello World",
+        onValueChange = {},
+        backgroundColor = Color.White,
+        modifier = Modifier,
+    )

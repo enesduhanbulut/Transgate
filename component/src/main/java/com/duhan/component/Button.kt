@@ -1,8 +1,5 @@
 package com.duhan.component
 
-import android.util.Log
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -16,8 +13,12 @@ fun Button(buttonParams: ButtonParams) {
         modifier = buttonParams.modifier,
         onClick = buttonParams.onClick,
         shape =
-            androidx.compose.foundation.shape
-                .RoundedCornerShape(buttonParams.cornerRadius),
+            androidx.compose.foundation.shape.RoundedCornerShape(
+                topStart = buttonParams.radiusPerCorners.topStart ?: buttonParams.allCornerRadius,
+                topEnd = buttonParams.radiusPerCorners.topEnd ?: buttonParams.allCornerRadius,
+                bottomStart = buttonParams.radiusPerCorners.bottomStart ?: buttonParams.allCornerRadius,
+                bottomEnd = buttonParams.radiusPerCorners.bottomEnd ?: buttonParams.allCornerRadius,
+            ),
         colors =
             androidx.compose.material3.ButtonDefaults.buttonColors(
                 containerColor = buttonParams.backgroundColor,
@@ -30,7 +31,8 @@ fun Button(buttonParams: ButtonParams) {
 }
 
 data class ButtonParams(
-    val cornerRadius: Dp = 10.dp,
+    val allCornerRadius: Dp = 10.dp,
+    val radiusPerCorners: RadiusCorners = RadiusCorners(),
     val backgroundColor: Color = Color.White,
     val modifier: Modifier = Modifier,
     val onClick: () -> Unit = {},
@@ -41,16 +43,22 @@ data class ButtonParams(
 @Preview(showBackground = true)
 private fun ButtonPreview() {
     Button(
-        ButtonParams(
-            backgroundColor = Primary,
-            modifier = Modifier.padding(16.dp).fillMaxWidth(),
-            onClick = {
-                Log.d("Button", "Hello World")
-            },
-            textParams =
-                TextParams(
-                    text = "Hello World",
-                ),
-        ),
+        dummyButtonParams(),
     )
 }
+
+fun dummyButtonParams() =
+    ButtonParams(
+        allCornerRadius = 10.dp,
+        backgroundColor = Color.Black,
+        modifier = Modifier,
+        onClick = {},
+        textParams = dummyTextParams(),
+    )
+
+data class RadiusCorners(
+    val topStart: Dp? = null,
+    var topEnd: Dp? = null,
+    val bottomStart: Dp? = null,
+    var bottomEnd: Dp? = null,
+)

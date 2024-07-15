@@ -5,6 +5,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
 
@@ -17,6 +18,14 @@ fun Text(params: TextParams) {
         fontWeight = params.fontWeight,
         textAlign = params.textAlign,
         modifier = params.modifier,
+    )
+}
+
+@Composable
+@Preview
+private fun TextPreview() {
+    Text(
+        dummyTextParams(),
     )
 }
 

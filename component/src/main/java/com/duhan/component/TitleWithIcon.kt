@@ -8,14 +8,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun TitleWithIcon(params: TitleWithIconParams) {
@@ -57,25 +51,7 @@ private fun DrawSpacer() {
 @Preview(showBackground = true)
 private fun TitleWithIconPreview() {
     TitleWithIcon(
-        TitleWithIconParams(
-            titleParams =
-                TextParams(
-                    text = "Hello World",
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Normal,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier,
-                ),
-            iconParams =
-                IconParams(
-                    imageVector = ImageVector.vectorResource(id = R.drawable.ic_cancel),
-                    contentDescription = "Cancel",
-                    tint = Color.Black,
-                    modifier = Modifier,
-                ),
-            iconPosition = IconPosition.Start,
-            modifier = Modifier,
-        ),
+        dummyTitleWithIconParams(),
     )
 }
 
@@ -91,3 +67,12 @@ enum class IconPosition {
     Start,
     End,
 }
+
+@Composable
+fun dummyTitleWithIconParams() =
+    TitleWithIconParams(
+        titleParams = dummyTextParams(),
+        iconParams = dummyIconParams(),
+        iconPosition = IconPosition.Start,
+        modifier = Modifier,
+    )

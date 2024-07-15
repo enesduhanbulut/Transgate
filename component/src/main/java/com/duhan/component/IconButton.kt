@@ -1,9 +1,7 @@
 package com.duhan.component
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.vectorResource
+import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun IconButton(params: IconButtonParams) {
@@ -16,6 +14,14 @@ fun IconButton(params: IconButtonParams) {
     }
 }
 
+@Composable
+@Preview
+private fun IconButtonPreview() {
+    IconButton(
+        dummyIconButtonParams(),
+    )
+}
+
 data class IconButtonParams(
     val onClick: () -> Unit = {},
     val iconParams: IconParams = IconParams(),
@@ -24,10 +30,7 @@ data class IconButtonParams(
 @Composable
 fun dummyIconButtonParams() =
     IconButtonParams(
+        onClick = {},
         iconParams =
-            IconParams(
-                imageVector = ImageVector.vectorResource(id = R.drawable.ic_back),
-                contentDescription = "Back",
-                tint = Color.Black,
-            ),
+            dummyIconParams(),
     )

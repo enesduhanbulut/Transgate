@@ -3,6 +3,7 @@ package com.duhan.transgate
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.duhan.component.MultilineTextAreaWithTitleAndIconParams
 import com.duhan.component.ToolbarParams
 
 class MainViewModel : ViewModel() {
@@ -12,4 +13,6 @@ class MainViewModel : ViewModel() {
 
 data class MainViewState(
     val toolbarParams: ToolbarParams = ToolbarParams(),
+    val sourceLanguageParams: MultilineTextAreaWithTitleAndIconParams = MultilineTextAreaWithTitleAndIconParams(),
+    val targetLanguageParams: MultilineTextAreaWithTitleAndIconParams = MultilineTextAreaWithTitleAndIconParams(),
 )

@@ -1,15 +1,10 @@
 package com.duhan.component
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
 
 @Composable
 fun MultilineTextAreaWithTitleAndIcon(params: MultilineTextAreaWithTitleAndIconParams) {
@@ -25,34 +20,7 @@ fun MultilineTextAreaWithTitleAndIcon(params: MultilineTextAreaWithTitleAndIconP
 @Composable
 private fun MultilineTextAreaWithTitleAndIconPreview() {
     MultilineTextAreaWithTitleAndIcon(
-        MultilineTextAreaWithTitleAndIconParams(
-            contentText =
-                TextAreaParams(
-                    value = "Hello",
-                    onValueChange = {},
-                    backgroundColor = Color.White,
-                    modifier = Modifier,
-                ),
-            titleAndIconParams =
-                TitleWithIconParams(
-                    iconParams =
-                        IconParams(
-                            contentDescription = "Cancel",
-                            tint = Color.Black,
-                        ),
-                    titleParams =
-                        TextParams(
-                            text = "Title",
-                            fontSize = 16.sp,
-                            fontWeight = FontWeight.Bold,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier,
-                        ),
-                    iconPosition = IconPosition.End,
-                    modifier = Modifier,
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ),
-        ),
+        dummyMultilineTextAreaWithTitleAndIconParams(),
     )
 }
 
@@ -60,3 +28,10 @@ data class MultilineTextAreaWithTitleAndIconParams(
     val contentText: TextAreaParams = TextAreaParams(),
     val titleAndIconParams: TitleWithIconParams = TitleWithIconParams(),
 )
+
+@Composable
+fun dummyMultilineTextAreaWithTitleAndIconParams() =
+    MultilineTextAreaWithTitleAndIconParams(
+        contentText = dummyTextAreaParams(),
+        titleAndIconParams = dummyTitleWithIconParams(),
+    )

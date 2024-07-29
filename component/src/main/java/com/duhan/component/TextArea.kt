@@ -1,20 +1,25 @@
 package com.duhan.component
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TextArea(params: TextAreaParams) {
+fun TextArea(
+    params: TextAreaParams,
+    modifier: Modifier = Modifier,
+) {
     TextField(
-        value = params.value,
+        value = stringResource(params.value),
         onValueChange = params.onValueChange,
-        modifier = params.modifier,
+        modifier = modifier,
         shape = RoundedCornerShape(10.dp),
         colors =
             TextFieldDefaults.colors(
@@ -30,10 +35,9 @@ fun TextArea(params: TextAreaParams) {
 }
 
 data class TextAreaParams(
-    val value: String = "",
+    @StringRes val value: Int = R.string.app_name,
     val onValueChange: (String) -> Unit = {},
     val backgroundColor: Color = Color.White,
-    val modifier: Modifier = Modifier,
 )
 
 @Preview(showBackground = true)
@@ -44,11 +48,9 @@ private fun TextAreaPreview() {
     )
 }
 
-@Composable
 fun dummyTextAreaParams() =
     TextAreaParams(
-        value = "Hello World",
+        value = R.string.app_name,
         onValueChange = {},
         backgroundColor = Color.White,
-        modifier = Modifier,
     )

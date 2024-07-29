@@ -1,13 +1,21 @@
 package com.duhan.component
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ButtonWithSubButton(params: ButtonWithSubButtonParams) {
-    Row {
+fun ButtonWithSubButton(
+    params: ButtonWithSubButtonParams,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy((-4).dp),
+    ) {
         Button(
             params.buttonParams.copy(
                 radiusPerCorners =
@@ -18,7 +26,13 @@ fun ButtonWithSubButton(params: ButtonWithSubButtonParams) {
             ),
         )
         IconButton(
-            params.subButtonParams,
+            params.subButtonParams.copy(
+                radiusPerCorners =
+                    RadiusCorners(
+                        topStart = 0.dp,
+                        bottomStart = 0.dp,
+                    ),
+            ),
         )
     }
 }
@@ -31,7 +45,6 @@ private fun ButtonWithSubButtonPreview() {
     )
 }
 
-@Composable
 fun dummyButtonWithSubButtonParams() =
     ButtonWithSubButtonParams(
         buttonParams = dummyButtonParams(),

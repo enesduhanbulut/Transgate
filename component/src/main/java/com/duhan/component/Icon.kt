@@ -1,5 +1,6 @@
 package com.duhan.component
 
+import androidx.annotation.DrawableRes
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -8,12 +9,15 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
-fun Icon(params: IconParams) {
+fun Icon(
+    params: IconParams,
+    modifier: Modifier = Modifier,
+) {
     androidx.compose.material3.Icon(
-        imageVector = params.imageVector ?: ImageVector.vectorResource(id = R.drawable.ic_cancel),
+        imageVector = ImageVector.vectorResource(id = params.imageVector ?: R.drawable.ic_cancel),
         contentDescription = params.contentDescription,
         tint = params.tint,
-        modifier = params.modifier,
+        modifier = modifier,
     )
 }
 
@@ -26,17 +30,14 @@ private fun IconPreview() {
 }
 
 data class IconParams(
-    val imageVector: ImageVector? = null,
+    @DrawableRes val imageVector: Int? = null,
     val contentDescription: String? = null,
     val tint: Color = Color.White,
-    val modifier: Modifier = Modifier,
 )
 
-@Composable
 fun dummyIconParams() =
     IconParams(
-        imageVector = ImageVector.vectorResource(id = R.drawable.ic_cancel),
+        imageVector = R.drawable.ic_cancel,
         contentDescription = "Cancel",
         tint = Color.Black,
-        modifier = Modifier,
     )

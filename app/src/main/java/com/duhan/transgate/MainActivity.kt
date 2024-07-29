@@ -6,9 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import com.duhan.transgate.ui.theme.TransgateTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,26 +19,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-                    Greeting("Android")
+                    MainScreen(mainViewModel = MainViewModel())
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(
-    name: String,
-    modifier: Modifier = Modifier,
-) {
-    androidx.compose.material3.Button(onClick = { /*TODO*/ }) {
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-private fun GreetingPreview() {
-    TransgateTheme {
-        Greeting("Android")
     }
 }

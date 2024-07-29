@@ -8,9 +8,12 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun Button(buttonParams: ButtonParams) {
+fun Button(
+    buttonParams: ButtonParams,
+    modifier: Modifier = Modifier,
+) {
     androidx.compose.material3.Button(
-        modifier = buttonParams.modifier,
+        modifier = modifier,
         onClick = buttonParams.onClick,
         shape =
             androidx.compose.foundation.shape.RoundedCornerShape(
@@ -34,7 +37,6 @@ data class ButtonParams(
     val allCornerRadius: Dp = 10.dp,
     val radiusPerCorners: RadiusCorners = RadiusCorners(),
     val backgroundColor: Color = Color.White,
-    val modifier: Modifier = Modifier,
     val onClick: () -> Unit = {},
     val textParams: TextParams = TextParams(),
 )
@@ -51,7 +53,6 @@ fun dummyButtonParams() =
     ButtonParams(
         allCornerRadius = 10.dp,
         backgroundColor = Color.Black,
-        modifier = Modifier,
         onClick = {},
         textParams = dummyTextParams(),
     )

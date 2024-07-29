@@ -12,9 +12,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun TitleWithIcon(params: TitleWithIconParams) {
+fun TitleWithIcon(
+    params: TitleWithIconParams,
+    modifier: Modifier = Modifier,
+) {
     Row(
-        modifier = params.modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalArrangement = params.horizontalArrangement,
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -60,7 +63,6 @@ data class TitleWithIconParams(
     val iconParams: IconParams = IconParams(),
     val horizontalArrangement: Arrangement.Horizontal = Arrangement.SpaceBetween,
     val iconPosition: IconPosition = IconPosition.Start,
-    val modifier: Modifier = Modifier,
 )
 
 enum class IconPosition {
@@ -68,11 +70,9 @@ enum class IconPosition {
     End,
 }
 
-@Composable
 fun dummyTitleWithIconParams() =
     TitleWithIconParams(
         titleParams = dummyTextParams(),
         iconParams = dummyIconParams(),
         iconPosition = IconPosition.Start,
-        modifier = Modifier,
     )
